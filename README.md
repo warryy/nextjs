@@ -37,3 +37,55 @@ Creating a new Next.js app in /Users/warryy/code/nextjs/test/nextjs15-tw3-react1
 ```
 
 ## 安装 tailwindcss
+
+- `pnpm add  -D tailwindcss@3`
+- `npx tailwindcss init`
+- 配置 `tailwind.config.js`
+
+```
+// ...
+content: ["./src/**/*.{html,tsx,ts}"],
+// ...
+```
+
+- 添加 css 指令到全局 css  
+  global.css
+
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// ...
+```
+
+- **重点重点重点**: 修改 postcss.config.js 配置
+  将项目生成的 postcss.config.mjs 文件删除, sb 东西有问题(貌似 next.js 15+ 会有这个问题, 其余版本不清楚)
+  自建 postcss.config.js 文件, 填写以下内容
+  tailwind 相关文档: https://v3.tailwindcss.com/docs/using-with-preprocessors
+
+```
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+```
+
+安装 `autoprefixer`: `pnpm add autoprefixer`
+删除 `@tailwindcss/postcss`: `pnpm remove @tailwindcss/postcss`
+
+- 测试是否成功
+  src/app/page.tsx
+
+```
+export default function Home() {
+  return (
+    <div className="bg-slate-700 p-4 text-3xl font-bold underline">
+      Hello Tailwind CSS
+    </div>
+  );
+}
+
+```
