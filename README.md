@@ -89,3 +89,10 @@ export default function Home() {
 }
 
 ```
+
+## 安装 shadcn-ui
+
+直接用一个模板试试, 先把 globals.css 文件内容清空, 并找地方保存一下
+运行: `npx shadcn@latest add sidebar-11`
+一路回车
+将保存的旧 globals.css 文件内容粘贴回原文件
