@@ -1,9 +1,9 @@
-import Image from "next/image";
+import { CardWithFormDemo } from './components/card-demo'
 
 export default function Home() {
   return (
-    <div className="bg-slate-700 p-4 text-3xl font-bold underline">
-      Hello Tailwind CSS
+    <div>
+      <CardWithFormDemo />
     </div>
-  );
+  )
 }

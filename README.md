@@ -68,6 +68,7 @@ content: ["./src/**/*.{html,tsx,ts}"],
 module.exports = {
   plugins: {
     tailwindcss: {},
+    // 自动添加浏览器前缀
     autoprefixer: {},
   },
 };
@@ -96,3 +97,35 @@ export default function Home() {
 运行: `npx shadcn@latest add sidebar-11`
 一路回车
 将保存的旧 globals.css 文件内容粘贴回原文件
+
+## 进阶
+
+### 配置 vscode 的 prettier
+
+安装插件: https://open-vsx.org/extension/esbenp/prettier-vscode
+项目安装 prettier 以及 tailwindcss 插件
+
+```
+pnpm add -D prettier prettier-plugin-tailwindcss
+```
+
+项目根目录新建: prettier.config.mjs
+
+> 用 .mjs 做文件后缀, 项目导出用 export default xxx 这种 esm 的导出方式
+> 明确用 .mjs 后缀, vscode 可以更好的知道如何引入配置, 而不会识别不到
+
+```
+const config = {
+  // 使用 prettier-plugin-tailwindcss 插件, 用于给 tailwind 的类名排序
+  plugins: ['prettier-plugin-tailwindcss'],
+  // 指定 tailwind.config.js 文件路径
+  tailwindConfig: './tailwind.config.js',
+  // 对 cn 函数中的类名进行排序
+  tailwindFunctions: ['cn'],
+  // 保留重复的类名, true 为保留, default: false
+  tailwindPreserveDuplicates: false,
+  // 自动移除 tailwind 的类名中的空格, false 为移除, default: false
+  tailwindPreserveWhitespace: false,
+}
+export default config
+```
