@@ -5,6 +5,10 @@ module.exports = {
   darkMode: ["class"],
   content: ["./src/**/*.{tsx,ts}"],
   theme: {
+    supports: {
+      // 判断浏览器是否支持 grid 属性
+      grid: "display: grid",
+    },
     extend: {
       borderRadius: {
         lg: "var(--radius)",
