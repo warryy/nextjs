@@ -6,7 +6,6 @@ export default function Home() {
     <div>
       <StatesDemo />
       <CardWithFormDemo />
-      <div className="text-red mt-3 text-sm">errorMsg</div>
     </div>
   );
 }

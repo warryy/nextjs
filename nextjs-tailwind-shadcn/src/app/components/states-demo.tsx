@@ -14,16 +14,6 @@ export default function StatesDemo() {
           <div key={index}>{index}</div>
         ))}
       </div>
-
-      <form className="group" data-state="disabled">
-        <input className="border border-green-500 bg-transparent" type="text" />
-        <button
-          className="border border-green-500 bg-transparent group-[data-state=disabled]:opacity-80"
-          type="submit"
-        >
-          Submit
-        </button>
-      </form>
     </div>
   );
 }
