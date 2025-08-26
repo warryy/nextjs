@@ -1,5 +1,6 @@
 import "./globals.css";
 import { readexPro, lusitana, eduNswActFoundation } from "./ui/fonts";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function RootLayout({
   children,
@@ -8,7 +9,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${eduNswActFoundation.variable} antialiased`}>
-      <body className={`${readexPro.className}`}>{children}</body>
+      <body className={`${readexPro.className}`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
