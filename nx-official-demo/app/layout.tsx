@@ -1,5 +1,5 @@
 import "./globals.css";
-import { readexPro, lusitana, eduNswActFoundation } from "./ui/fonts";
+import { readexPro, eduNswActFoundation } from "./ui/fonts";
 import { Analytics } from "@vercel/analytics/next";
 
 export default function RootLayout({
